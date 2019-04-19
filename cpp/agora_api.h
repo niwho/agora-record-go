@@ -10,7 +10,7 @@ extern "C" {
 typedef struct RecordingEnginex RecordingEnginex;
 
 AGORA_API RecordingEnginex* CreateRecordingEngine();
-AGORA_API SetOnErrorEventHandler(RecordingEnginex* handler, void* onError);
+AGORA_API void SetOnErrorEventHandler(RecordingEnginex* handler, void* onError);
 
 #ifdef __cplusplus
 };

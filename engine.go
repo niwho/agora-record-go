@@ -1,7 +1,8 @@
 package agora_record_go
 
 /*
-#cgo LDFLAGS: -L/usr/local/lib -lRecordEngine
+#cgo CFLAGS: -I${SRCDIR}/cpp
+#cgo LDFLAGS: -L/usr/local/lib  -L${SRCDIR}/cpp -lRecordEngine -lmyagora
 
 #include <stdlib.h>
 #include "cpp/agora_api.h"

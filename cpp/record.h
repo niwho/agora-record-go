@@ -1,7 +1,11 @@
 #ifndef __C_EVENT_H__
 #define __C_EVENT_H__
 
+#include <iostream>
 #include "include/IAgoraRecordingEngine.h"
+
+using namespace agora::recording;
+using namespace std;
 
 typedef void (*ponError)(int);
 typedef void (*ponWarning)(int);
@@ -45,8 +49,8 @@ class RecordingEngine: public IRecordingEngineEventHandler {
       agora::recording::RecordingConfig &config);
 
   void onError(int error){
-    if this->m_onError!=NULL{
-      this->m_onError(error);
+    if (m_onError!=NULL){
+      m_onError(error);
     }
   }
   void onWarning(int warn){
@@ -67,26 +71,26 @@ class RecordingEngine: public IRecordingEngineEventHandler {
       this->m_onUserOffline(uid, reason);
   }
 
-  void SetonError(onError ponError){
+  void SetonError(ponError onError){
       this->m_onError = onError;
   }
 
-  void SetonWarning(onWarning ponWarning){
+  void SetonWarning(ponWarning onWarning){
       this->m_onWarning = onWarning;
    }
 
-  void SetonJoinChannelSuccess(onJoinChannelSuccess ponJoinChannelSuccess){
-      this->m_onError = onError;
+  void SetonJoinChannelSuccess(ponJoinChannelSuccess onJoinChannelSuccess){
+      this->m_onJoinChannelSuccess = onJoinChannelSuccess;
   }
-  void SetonLeaveChannel(onError ponLeaveChannel){
-      this->m_onLeaveChannel = ononLeaveChannel;
+  void SetonLeaveChannel(ponLeaveChannel onLeaveChannel){
+      this->m_onLeaveChannel = onLeaveChannel;
   }
 
-    void SetonUserJoined(onUserJoined ponUserJoined){
+    void SetonUserJoined(ponUserJoined onUserJoined){
       this->m_onUserJoined = onUserJoined;
   }
 
-  void SetonUserOffline(onUserOffline ponUserOffline){
+  void SetonUserOffline(ponUserOffline onUserOffline){
       this->m_onUserOffline = onUserOffline;
   }
 
