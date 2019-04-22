@@ -2,6 +2,7 @@
 #define __C_EVENT_H__
 
 #include <iostream>
+#include <stdint.h>
 #include "include/IAgoraRecordingEngine.h"
 
 using namespace agora::recording;
